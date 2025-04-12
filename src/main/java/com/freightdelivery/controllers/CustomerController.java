@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.freightdelivery.models.Customer;
@@ -18,7 +19,7 @@ import com.freightdelivery.services.CustomerService;
 import lombok.Data;
 
 @RestController
-@Data
+@RequestMapping("/Customer")
 public class CustomerController {
 	
 	@Autowired
@@ -34,7 +35,7 @@ public class CustomerController {
 		return cs.getAllCustomers();
 	}
 	
-	@DeleteMapping("/delete")
+	@DeleteMapping("/delete/{id}")
 	public void deletcustomer(@PathVariable int id) {
 		cs.deleteCustomer(id);
 	}
