@@ -1,5 +1,7 @@
 package com.freightdelivery.models;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Value;
 
 import jakarta.annotation.Generated;
@@ -26,8 +28,8 @@ public class Carrier {
 	private int capacity;
 	private boolean active;
 	
-//	@OneToMany(mappedBy = "carrier", cascade = CascadeType.ALL)
-//	private Shipment shipment;
+	@OneToMany(mappedBy = "fk_carrier_id", cascade = CascadeType.ALL)
+	private List<Shipment> shipment;
 	
 	
 	

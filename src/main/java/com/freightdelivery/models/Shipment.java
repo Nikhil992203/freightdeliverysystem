@@ -13,11 +13,12 @@ public class Shipment {
 @GeneratedValue(strategy = GenerationType.AUTO)
 	private int shipmentId;
 
-
-	private int fk_customerId;
-//	@ManyToOne
-//	@JoinColumn(name="carrierId")
-	private int fk_carrierId;
+@ManyToOne
+@JoinColumn(name="fk_customerId") 
+	private Customer fk_customerId;
+	@ManyToOne
+	@JoinColumn(name="fk_carrier_id" )
+	private Carrier fk_carrier_id;
 	private String origin;
 	private String destination;
 	private double packageWeight;
